@@ -29,6 +29,10 @@ namespace exec {
   namespace __scope {
     using namespace stdexec;
 
+    // vvv workaround for msvc 19.44 preview3 vvv
+    //   it seems to mistakenly ambiguite with global `int connect(...)` function of winsock.h.
+    using stdexec::connect; // workaround for msvc
+
     struct __impl;
     struct async_scope;
 
